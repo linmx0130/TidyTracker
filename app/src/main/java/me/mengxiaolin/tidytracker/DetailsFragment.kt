@@ -31,9 +31,6 @@ class DetailsFragment : Fragment() {
     private val data: MutableLiveData<WashableItem> = MutableLiveData()
     private lateinit var db: AppDatabase
 
-    init {
-
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,7 +61,7 @@ class DetailsFragment : Fragment() {
                 }
                 dialog.show()
             }
-            buttonSecond.setOnClickListener {
+            buttonSave.setOnClickListener {
                 data.value?.let{
                     viewLifecycleOwner.lifecycleScope.launch {
                         if (itemId != 0) {

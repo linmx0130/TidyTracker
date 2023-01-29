@@ -4,12 +4,11 @@
     <!-- Strings used for fragments for navigation -->
     <string name="main_fragment_label">Tidy Tracker</string>
     <string name="details_fragment_label">Details</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
     <!-- Labels for details fragment -->
     <string name="name_label">Name</string>
     <string name="last_clean_time_label">Last clean at</string>
     <string name="last_clean_time_placeholder">Loading…</string>
-
+    <string name="calendar_pick_button_label">Pick</string>
+    <string name="save_button_label">Save</string>
 </resources>
