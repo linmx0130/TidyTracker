@@ -7,6 +7,7 @@
 
     <!-- Labels for details fragment -->
     <string name="name_label">Name</string>
+    <string name="name_placeholder">Enter name here</string>
     <string name="last_clean_time_label">Last clean at</string>
     <string name="last_clean_time_placeholder">Loading…</string>
     <string name="calendar_pick_button_label">Pick</string>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import me.mengxiaolin.tidytracker.databinding.FragmentMainBinding
 import me.mengxiaolin.tidytracker.mainview.MainViewItemAdapter
 
@@ -41,6 +42,13 @@ class MainFragment : Fragment() {
             ))
         }
         rv.adapter = adapter
+
+        val fab = binding.fab
+        fab.setOnClickListener { _ ->
+            findNavController().navigate(R.id.action_MainFragment_to_DetailsFragment, bundleOf(
+                "item_id" to 0
+            ))
+        }
     }
 
     override fun onDestroyView() {

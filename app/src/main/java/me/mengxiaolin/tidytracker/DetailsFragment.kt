@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -63,13 +64,13 @@ class DetailsFragment : Fragment() {
             }
             buttonSave.setOnClickListener {
                 data.value?.let{
+                    val savedValue = it.copy(name = nameEdittext.text.toString())
                     viewLifecycleOwner.lifecycleScope.launch {
                         if (itemId != 0) {
-                            db.washableItemDao().update(it)
+                            db.washableItemDao().update(savedValue)
                         } else {
-                            db.washableItemDao().insert(it)
+                            db.washableItemDao().insert(savedValue)
                         }
-
                     }
                 }
                 findNavController().popBackStack()
@@ -92,6 +93,8 @@ class DetailsFragment : Fragment() {
                 if (results.isNotEmpty()) {
                     data.value = results[0]
                 }
+            } else {
+                data.value = WashableItem(0, "", Date().time, 10)
             }
         }
     }
