@@ -8,9 +8,16 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/title"
         android:textSize="36sp"
+        android:fontFamily="sans-serif-black"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/last_clean_time"
+        android:textSize="12sp"
         android:fontFamily="sans-serif"
         />
 

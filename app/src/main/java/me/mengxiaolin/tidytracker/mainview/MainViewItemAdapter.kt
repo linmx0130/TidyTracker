@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 import me.mengxiaolin.tidytracker.data.AppDatabase
 import me.mengxiaolin.tidytracker.data.WashableItem
 import me.mengxiaolin.tidytracker.databinding.ContentMainviewItemBinding
+import java.text.DateFormat
+import java.util.*
 
 class MainViewItemAdapter(appContext: Context, owner:LifecycleOwner): RecyclerView.Adapter<MainViewItemAdapter.ViewHolder>()  {
     private val viewModel: DbViewModel = DbViewModel(appContext)
@@ -46,9 +48,12 @@ class MainViewItemAdapter(appContext: Context, owner:LifecycleOwner): RecyclerVi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = checkNotNull(viewModel.dataSet.value)[position]
-        holder.binding.title.text = item.name
-        holder.binding.root.setOnClickListener {
-            onItemClickedListener?.invoke(item)
+        holder.binding.apply {
+            title.text = item.name
+            lastCleanTime.text = DateFormat.getDateInstance().format(Date(item.lastCleanTime))
+            root.setOnClickListener {
+                onItemClickedListener?.invoke(item)
+            }
         }
     }
 
